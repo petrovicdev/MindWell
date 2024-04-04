@@ -1,37 +1,31 @@
 <template>
-  <div class="home">
-    <h1>Dobrodošli u MindWell</h1>
-    <p>Platforma za podršku mentalnom zdravlju zaposlenih.</p>
-    <!-- Ovde možemo dodati više sadržaja kasnije -->
+  <div>
+    <NavigationBar />
+    <HeroSection />
+    <FeaturesSection />
+    <HowItWorksSection />
+    <TestimonialsSection />
+    <FooterSection />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script>
+import NavigationBar from '@/components/NavigationBar.vue'
+import HeroSection from '@/components/HeroSection.vue'
+import FeaturesSection from '@/components/FeaturesSection.vue'
+import HowItWorksSection from '@/components/HowItWorksSection.vue'
+import TestimonialsSection from '@/components/TestimonialsSection.vue'
+import FooterSection from '@/components/FooterSection.vue'
 
-export default defineComponent({
+export default {
   name: 'HomeView',
-  // Ovde možemo dodati TypeScript kod za logiku stranice kasnije
-})
+  components: {
+    NavigationBar,
+    HeroSection,
+    FeaturesSection,
+    HowItWorksSection,
+    TestimonialsSection,
+    FooterSection,
+  },
+}
 </script>
-
-<style scoped>
-.home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
-}
-
-h1 {
-  color: #35495e;
-  margin-bottom: 20px;
-}
-
-p {
-  color: #627c83;
-  font-size: 20px;
-}
-</style>
