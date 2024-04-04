@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/petrovicdev/MindWell#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "typescript": "^5.4.3"
   }
 }

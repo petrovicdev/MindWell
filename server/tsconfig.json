@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es2021",
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "noImplicitReturns": true,
+        "outDir": "dist",
+        "sourceMap": true
+    },
+    "include": ["./src", "./index.ts", "./index.d.ts"],
+    "exclude": ["node_modules", "dist"],
+    "typeRoots": ["./node_modules/@types", "./index.d.ts"],
+    "files": ["./index.d.ts"]
+}
