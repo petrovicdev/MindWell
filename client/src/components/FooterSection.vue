@@ -11,7 +11,6 @@ export default {
 </script>
 
 <style>
-/* Dodajte svoje stilove */
 .footer {
   text-align: center;
   padding: 20px;

@@ -5,6 +5,7 @@
       <li><router-link to="/about">O nama</router-link></li>
       <li><router-link to="/quiz">Kviz</router-link></li>
       <li><router-link to="/resources">Resursi</router-link></li>
+      <li><router-link to="/login">Uloguj se</router-link>></li>
     </ul>
   </nav>
 </template>

@@ -2,7 +2,9 @@
   <div class="hero">
     <h1>Dobrodošli u MindWell</h1>
     <p>Putovanje ka boljem mentalnom zdravlju počinje ovde.</p>
-    <button @click="startJourney">Započnite svoje putovanje</button>
+    <button name="hero-register-button" @click="startJourney">
+      Započnite svoje putovanje
+    </button>
   </div>
 </template>
 
@@ -11,7 +13,7 @@ export default {
   name: 'HeroSection',
   methods: {
     startJourney() {
-      // Logika za započinjanje putovanja, možda navigacija do stranice za registraciju
+      window.location.replace('/register')
     },
   },
 }
@@ -25,7 +27,7 @@ export default {
   text-align: center;
 }
 
-button {
+.hero-register-button {
   background-color: #f5a623;
   border: none;
   padding: 10px 20px;
