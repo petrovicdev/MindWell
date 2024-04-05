@@ -47,8 +47,6 @@ export default {
   },
   methods: {
     onLogin() {
-      // Ovde bi se nalazila logika za prijavu,
-      // kao što je slanje podataka na backend.
       console.log('Prijavljivanje sa:', this.loginDetails)
     },
   },
@@ -61,19 +59,25 @@ export default {
   margin: 50px auto;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
 .form-group {
+  width: 100%;
   margin-bottom: 20px;
 }
 
 label {
   display: block;
+  width: 100%;
+  text-align: left;
   margin-bottom: 5px;
 }
 
-input {
-  width: 100%;
+input[type='text'],
+input[type='password'] {
+  width: calc(100% - 20px);
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
@@ -81,13 +85,14 @@ input {
 }
 
 button {
-  width: 100%;
+  width: calc(100% - 20px);
   padding: 10px;
   border: none;
   border-radius: 4px;
   background-color: #35495e;
   color: white;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 button:hover {
