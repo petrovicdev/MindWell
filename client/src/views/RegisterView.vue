@@ -1,98 +1,161 @@
 <template>
   <NavigationBar />
-  <div class="login-container">
-    <h1>Prijava</h1>
-    <form @submit.prevent="onLogin">
+  <div class="register-container">
+    <h1>Registracija</h1>
+    <form @submit.prevent="onRegister">
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input
+          type="email"
+          id="email"
+          v-model="registerDetails.email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Telefonski broj:</label>
+        <vue-tel-input
+          v-model="registerDetails.phoneNumber"
+          @onInput="onUpdatePhone"
+        ></vue-tel-input>
+      </div>
+
+      <div class="form-group">
+        <label for="firstName">Ime:</label>
+        <input
+          type="text"
+          id="firstName"
+          v-model="registerDetails.firstName"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Prezime:</label>
+        <input
+          type="text"
+          id="lastName"
+          v-model="registerDetails.lastName"
+          required
+        />
+      </div>
+
       <div class="form-group">
         <label for="username">Korisničko ime:</label>
         <input
           type="text"
           id="username"
-          v-model="loginDetails.username"
+          v-model="registerDetails.username"
           required
         />
       </div>
+
+      <div class="form-group">
+        <label for="dob">Datum rođenja:</label>
+        <input type="date" id="dob" v-model="registerDetails.dob" required />
+      </div>
+
       <div class="form-group">
         <label for="password">Lozinka:</label>
         <input
           type="password"
           id="password"
-          v-model="loginDetails.password"
+          v-model="registerDetails.password"
           required
         />
       </div>
-      <button type="submit">Prijavi se</button>
+
+      <div class="form-group">
+        <label for="confirmPassword">Potvrdite lozinku:</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          v-model="registerDetails.confirmPassword"
+          required
+        />
+      </div>
+
+      <button type="submit" @click="onRegister()">Registruj se</button>
     </form>
   </div>
   <FooterSection />
 </template>
 
 <script>
-import NavigationBar from '@/components/NavigationBar.vue'
 import FooterSection from '@/components/FooterSection.vue'
+import NavigationBar from '@/components/NavigationBar.vue'
+import VueTelInput from 'vue-tel-input'
+import 'vue-tel-input/vue-tel-input.css'
 
 export default {
-  name: 'LoginView',
+  name: 'RegisterView',
   components: {
     NavigationBar,
     FooterSection,
+    VueTelInput,
   },
   data() {
     return {
-      loginDetails: {
+      registerDetails: {
+        email: '',
+        phoneNumber: '',
+        firstName: '',
+        lastName: '',
         username: '',
+        dob: '',
         password: '',
+        confirmPassword: '',
       },
     }
   },
   methods: {
-    onLogin() {
-      console.log('Prijavljivanje sa:', this.loginDetails)
+    onRegister() {
+      // Ovde ide logika za registraciju, kao što je slanje podataka na backend.
+      console.log('Podaci za registraciju:', this.registerDetails)
+    },
+    onUpdatePhone(event) {
+      this.registerDetails.phoneNumber = event
     },
   },
 }
 </script>
 
 <style>
-.login-container {
-  max-width: 300px;
-  margin: 50px auto;
+.register-container {
+  max-width: 400px;
+  margin: 0 auto;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.form-group {
-  width: 100%;
-  margin-bottom: 20px;
 }
 
-label {
-  display: block;
-  width: 100%;
-  text-align: left;
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-group label {
   margin-bottom: 5px;
 }
 
-input[type='text'],
-input[type='password'] {
-  width: calc(100% - 20px);
+.form-group input {
+  width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  box-sizing: border-box;
 }
 
 button {
-  width: calc(100% - 20px);
+  width: 100%;
   padding: 10px;
   border: none;
   border-radius: 4px;
   background-color: #35495e;
   color: white;
   cursor: pointer;
-  margin-top: 10px;
 }
 
 button:hover {
